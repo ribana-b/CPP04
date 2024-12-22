@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:48:37 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/20 04:06:28 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/22 01:55:11 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Cat	&Cat::operator=(const Cat &that)
 		delete brain;
 		brain = that.getBrain();
 	}
+	std::cout << "Cat Copy assigment Operator called" << std::endl;
 	return (*this);
 }
 

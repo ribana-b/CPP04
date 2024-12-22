@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:48:37 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/18 23:27:10 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/22 01:51:34 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Cat	&Cat::operator=(const Cat &that)
 	{
 		type = that.getType();
 	}
+	std::cout << "Cat Copy assigment operator called" << std::endl;
 	return (*this);
 }
 

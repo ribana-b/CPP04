@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 23:18:00 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/18 23:18:40 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/22 01:51:46 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &that)
 	{
 		type = that.getType();
 	}
+	std::cout << "WrongAnimal Copy assigment operator called" << std::endl;
 	return (*this);
 }
 

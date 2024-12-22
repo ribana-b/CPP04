@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:52:17 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/18 23:27:22 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/22 01:51:39 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Dog	&Dog::operator=(const Dog &that)
 	{
 		type = that.getType();
 	}
+	std::cout << "Dog Copy assigment operator called" << std::endl;
 	return (*this);
 }
 

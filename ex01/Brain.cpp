@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 23:33:04 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/20 04:22:16 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/22 01:52:56 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Brain	&Brain::operator=(const Brain &that)
 			ideas[i] = that.ideas[i];
 		}
 	}
+	std::cout << "Brain Copy assigment operator called" << std::endl;
 	return (*this);
 }
 
