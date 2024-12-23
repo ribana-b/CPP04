@@ -146,10 +146,10 @@ void	myTest6(void)
 	Cat *oldCat = new Cat();
 	Cat *cat = new Cat();
 
-	(void)oldCat;
 	oldCat->getBrain()->setIdeas("WAT");
 	cat->getBrain()->setIdeas("Hello world");
 	cat->getBrain()->setIdea("Bye world", 5);
+	cat->getBrain()->setIdea("Bye world", 123);
 	for (int i = 0; i < 100; ++i)
 	{
 		std::cout << cat->getBrain()->getIdeas()[i] << std::endl;

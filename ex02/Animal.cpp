@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:51:38 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/22 01:52:46 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/23 18:52:05 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,4 @@ void	Animal::setType(const std::string &newType)
 Animal::~Animal()
 {
 	std::cout << "Animal Destructor called" << std::endl;
-}
-
-void	Animal::makeSound() const
-{
-	std::cout << "Animal Default sound" << std::endl;
 }
