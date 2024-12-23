@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 23:19:23 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/22 01:55:44 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/22 01:53:44 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ WrongCat	&WrongCat::operator=(const WrongCat &that)
 	{
 		type = that.getType();
 	}
-	std::cout << "WrongCat Copy assigment Operator called" << std::endl;
+	std::cout << "WrongCat Copy assigment operator called" << std::endl;
 	return (*this);
 }
 

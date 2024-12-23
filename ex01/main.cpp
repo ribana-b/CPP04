@@ -112,6 +112,7 @@ void	myTest5(void)
 	Brain *newBrain = new Brain();
 	newBrain->setIdeas("lol");
 	((Cat *)animals[5])->setBrain(newBrain);
+	delete newBrain;
 	for (int i = 0; i < 10; ++i)
 	{
 		if (i < 5)
@@ -142,6 +143,42 @@ void	myTest5(void)
 	}
 }
 
+void	myTest6(void)
+{
+	Cat *cat = new Cat();
+	Cat *cat2 = new Cat();
+
+	Animal *newCat = new Cat(*cat);
+
+	delete newCat;
+	newCat = cat2;
+
+	delete cat;
+	delete newCat;
+}
+
+void	myTest7(void)
+{
+	Cat *oldCat = new Cat();
+	Cat *cat = new Cat();
+
+	(void)oldCat;
+	oldCat->getBrain()->setIdeas("WAT");
+	cat->getBrain()->setIdeas("Hello world");
+	cat->getBrain()->setIdea("Bye world", 5);
+	for (int i = 0; i < 100; ++i)
+	{
+		std::cout << cat->getBrain()->getIdeas()[i] << std::endl;
+	}
+	delete cat;
+	cat = oldCat;
+	for (int i = 0; i < 100; ++i)
+	{
+		std::cout << cat->getBrain()->getIdeas()[i] << std::endl;
+	}
+	delete oldCat;
+}
+
 int main()
 {
 	defaultTest();
@@ -150,5 +187,7 @@ int main()
 	myTest3();
 	myTest4();
 	myTest5();
+	myTest6();
+	myTest7();
 	return 0;
 }

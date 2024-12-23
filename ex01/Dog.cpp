@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:52:17 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/22 01:53:27 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/22 19:09:50 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ Dog::Dog(const Dog &that) :
 	Animal(that)
 {
 	type = that.getType();
+	delete brain;
+	brain = new Brain(*that.getBrain());
 	std::cout << "Dog Copy constructor called" << std::endl;
 }
 
@@ -33,7 +35,7 @@ Dog	&Dog::operator=(const Dog &that)
 	{
 		type = that.getType();
 		delete brain;
-		brain = that.getBrain();
+		brain = new Brain(*that.getBrain());
 	}
 	std::cout << "Dog Copy assigment operator called" << std::endl;
 	return (*this);
