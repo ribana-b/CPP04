@@ -6,21 +6,22 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 01:13:15 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/23 18:49:46 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/24 00:55:45 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
 Cure::Cure() :
-	AMateria("cure")
+	AMateria()
 {
+	type = "cure";
 	std::cout << "Cure Default constructor called" << std::endl;
 }
 
 
 Cure::Cure(const Cure &that) :
-	AMateria(that.getType())
+	AMateria(that)
 {
 	std::cout << "Cure Copy constructor called" << std::endl;
 }
@@ -47,7 +48,7 @@ AMateria	*Cure::clone()
 	return new Cure(*this);
 }
 
-void		AMateria::use(ICharacter &target)
+void		Cure::use(ICharacter &target)
 {
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

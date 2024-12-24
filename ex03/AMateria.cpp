@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 20:36:55 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/23 18:36:48 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/24 01:09:46 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ AMateria::AMateria() :
 }
 
 
-AMateria::AMateria(const AMateria &that) :
+AMateria::AMateria(const AMateria& that) :
 	type(that.getType())
 {
 	std::cout << "AMateria Copy constructor called" << std::endl;
@@ -31,8 +31,12 @@ AMateria::AMateria(const std::string &type) :
 	std::cout << "AMateria String constructor called" << std::endl;
 }
 
-AMateria	&AMateria::operator=(const AMateria &)
+AMateria	&AMateria::operator=(const AMateria& that)
 {
+	if (this != &that)
+	{
+		type = that.getType();
+	}
 	std::cout << "AMateria Copy operator called" << std::endl;
 	return (*this);
 }
@@ -40,6 +44,11 @@ AMateria	&AMateria::operator=(const AMateria &)
 const std::string	&AMateria::getType(void) const
 {
 	return (type);
+}
+
+void	AMateria::use(ICharacter& target)
+{
+	std::cout << "* does something at " << target.getName() << " *" << std::endl;
 }
 
 AMateria::~AMateria()

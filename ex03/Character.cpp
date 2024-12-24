@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 01:26:06 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/23 19:19:58 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/24 01:50:44 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ Character::Character() :
 Character::Character(const std::string &name) :
 	name(name)
 {
+	for (int i = 0; i < 4; ++i)
+	{
+		slots[i] = NULL;
+	}
 	std::cout << "Character String constructor called" << std::endl;
 }
 
@@ -33,16 +37,13 @@ Character::Character(const Character &that) :
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		if (slots[i])
-		{
-			delete slots[i];
-		}
+		delete slots[i];
 		slots[i] = that.getSlots()[i]->clone();
 	}
 	std::cout << "Character Copy constructor called" << std::endl;
 }
 
-Character	&Character::operator=(const Character &that)
+Character&	Character::operator=(const Character &that)
 {
 	if (this != &that)
 	{
@@ -52,12 +53,12 @@ Character	&Character::operator=(const Character &that)
 	return (*this);
 }
 
-const std::string	&Character::getName(void) const
+const std::string&	Character::getName(void) const
 {
 	return (name);
 }
 
-AMateria	* const *Character::getSlots(void) const
+AMateria* const*	Character::getSlots(void) const
 {
 	return (slots);
 }
@@ -71,26 +72,28 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		if (slots[i])
-		{
-			delete slots[i];
-		}
+		delete slots[i];
 	}
 	std::cout << "Character Destructor called" << std::endl;
 }
 
 void	Character::equip(AMateria *m)
 {
+	if (!m)
+		return;
 	for (int i = 0; i < 4; ++i)
 	{
-		if (slots[i])
+		if (!slots[i])
 		{
 			slots[i] = m->clone();
 			std::cout << "Character equipped " << m->getType() << " materia" << std::endl;
+			return;
 		}
 	}
 }
 
+// TODO: I mustn't delete the materia because the subject says so, so I have to think a "simple" solution
+// such as having a floor (as suggested in slack)
 void	Character::unequip(int index)
 {
 	if ((index < 0 || index >= 4) && slots[index])
@@ -99,7 +102,7 @@ void	Character::unequip(int index)
 		return;
 	}
 	std::cout << "Character unequipped " << slots[index]->getType() << " materia" << std::endl;
-	delete slots[index];
+	//delete slots[index];
 	slots[index] = NULL;
 }
 
@@ -107,10 +110,10 @@ void	Character::use(int index, ICharacter &target)
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		if (i == index)
+		if (i == index && slots[i])
 		{
 			slots[i]->use(target);
-			break;
-		}			
+			return;
+		}
 	}
 }

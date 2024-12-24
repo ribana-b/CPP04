@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 15:47:56 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/12/23 18:49:59 by ribana-b         ###   ########.com       #
+#    Updated: 2024/12/23 23:54:15 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,15 +42,15 @@ INCLUDE_DIR := ./
 SRC_DIR := ./
 OBJ_DIR := ./obj/
 
-INCLUDE_FILES := AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp
-SRC_FILES := AMateria.cpp Ice.cpp Cure.cpp Character.cpp main.cpp
+INCLUDE_FILES := AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
+SRC_FILES := AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp main.cpp 
 
 INCLUDE = $(addprefix $(INCLUDE_DIR), $(INCLUDE_FILES))
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 OBJ = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SRC))
 
-CXX := c++
+CXX := clang++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 ifdef WITH_DEBUG

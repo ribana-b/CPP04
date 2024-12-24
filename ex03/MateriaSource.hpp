@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:37:07 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/23 19:28:13 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/24 00:04:58 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include <iostream>
 # include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
 /* @------------------------------------------------------------------------@ */
 /* |                             Class Section                              | */
@@ -31,10 +32,12 @@ class MateriaSource : public IMateriaSource
 		~MateriaSource();
 		MateriaSource(const MateriaSource& that);
 
+		AMateria* const*	getSlots(void) const;
+
 		MateriaSource&	operator=(const MateriaSource& that);
 
-		void learnMateria(AMateria*);
-		AMateria* createMateria(std::string const& type);
+		void		learnMateria(AMateria* m);
+		AMateria*	createMateria(std::string const& type);
 
 	private:
 		AMateria	*slots[4];

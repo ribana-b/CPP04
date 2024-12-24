@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 05:18:40 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/23 18:36:59 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/24 01:08:04 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ class AMateria
 
 		const std::string	&getType(void) const;
 
-		AMateria	&operator=(const AMateria &);
+		AMateria	&operator=(const AMateria& that);
 
 		virtual AMateria	*clone() = 0;
-		virtual void		use(ICharacter &target);
+		virtual void		use(ICharacter& target);
 
 	protected:
-		const std::string type;
+		std::string type;
 };
 
 #endif // AMATERIA_HPP
